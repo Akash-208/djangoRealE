@@ -1,0 +1,32 @@
+{% extends "start.html" %}
+{% block title %}Login{% endblock title %}
+{% load static %}
+{% block body %}
+
+    <form method="post">{% csrf_token %}
+        <div class="cont mt-4 mb-4 mx-auto w-50 bg-transparent" style="padding: 45px; border-radius: 3vh;" >
+        <h1 class="text-light text-center mb-4">LOGIN</h1>
+        {% if messages %}
+        {{ message.tags }}
+            <div class="alert alert-primary" role="alert">
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="mb-3" style="color: white;" >
+            <label for="exampleInputEmail1" class="form-label">User Name</label>
+            <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <button type="submit" class="btn btn-primary" style="width: 100px; margin-top:20px">Submit</button>
+        </div>
+
+        <div class="anch text-center"><p><a href="register">Don't have account</a></p></div>
+        <div class="anch text-center mt-1"><p><a href=" /" style="text-decoration: none; color:white; font-size: larger;">Continue as Guest</a></p></div>
+        </div>
+    </div>
+    </form>
+{% endblock body %}

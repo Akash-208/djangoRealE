@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}User|posts{% endblock title %}
+{% load static %}
+{% block backg %}{% static 'upbanner.jpg' %}{% endblock backg %}
+{% block heading %}Y O U R | P O S T S{% endblock heading %}
+{% block body %}
+
+
+<div class="cont mt-5 mb-4" style="display: flex;">
+    {% for upost in p %}
+    
+    <div class="card mx-3" style="width: 18rem;">
+        <img src="{{upost.picture.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{upost.title}}</h5>
+            <p class="card-text">
+            <b>Type :</b> {{upost.title}}<br>
+            <b>Area :</b> {{upost.area}}<br>
+            <b>Bedrooms :</b> {{upost.numofbedroom}}<br>
+            <b>Bathrooms :</b> {{upost.numofbathrooms}}
+            </p>
+            <a href="delete/{{upost.id}}" class="btn btn-primary">Delete</a>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock body %}

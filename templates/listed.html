@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}List!!{% endblock title %}
+{% block heading %}Let's Scroll down here..{% endblock heading %}
+{% block backg %}{% static 'image2.jpg' %}{% endblock backg %}
+{% block body %}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<h1 class="mt-2 text-center">Listed items</h1>
+<div class="details">
+  {% for building in dict %}
+    <div id="first" class="w-100">
+        <h4 class="mt-4 bg-success link-light p-2 px-3">{{building.title}}</h4>
+        <div class="image">
+            <img src="{{building.picture.url}}" alt="error">
+        </div>
+        
+        <div class="accordion accordion-flush mx-auto mt-4" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  Details
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse"       aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body p-4" style="font-size:18px; height:35vh; background-color:black;">
+                    <pre style="color:white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                       <b style="color: red;">Address :</b>  {{building.address}}
+                       <b style="color: red;">Area :</b>  {{building.area}} sq feet
+                       <b style="color: red;">Bedrooms :</b>  {{building.numofbedroom}}
+                       <b style="color: red;">Bathrooms :</b>  {{building.numofbathrooms}}
+                       <b style="color: red;">Price :</b>   {{building.price}}$
+                       <b style="color: red;">Contact :</b> {{building.mail}}
+                    </pre>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+  
+</div>
+
+{% endblock body %}

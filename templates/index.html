@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% load static %}
+{% block backg %}{% static 'image3.jpg' %}{% endblock backg %}
+{% block body %}
+
+    <!-- LISTNING FORM -->
+  <div id="listning">
+    <h3 class="text-center mt-5">Enter your details here</h3>
+      <div class="userform font-weight-bold" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+      <form action="/submit" method="post" enctype="multipart/form-data" style="padding: 50px;"> {% csrf_token %}
+          <label for="name" class="m-3">Type :</label>
+          <input type="text" name="type" placeholder="Enter here">
+
+          <label for="address" class="m-3">Address:</label>
+          <input type="text" name="address" placeholder="Enter here" class="w-50"><br>
+
+          <label for="mail" class="m-3">Mail ID :</label>
+          <input type="email" name="mail"  placeholder="xyz@gmail.com">
+
+          <label for="Area" class="m-3">Area in sq :</label>
+          <input type="number" min="100" name="area">
+
+          <label for="price" class="m-3">Price :</label>
+          <input type="text" name="price"><br>
+
+          <label for="bdroom" class="m-3">Num of badrooms :</label>
+          <input type="number" min="2" name="numofbedrooms"><br>
+
+          <label for="bthrooms" class="m-3">Num of bathrooms :</label>
+          <input type="number" min="1" name="numofbathrooms"><br>
+
+          <label for="pic" class="m-3">Picture :</label>            
+          <input type="file" name="files" class="form-control w-50" id="inputGroupFile01">
+
+          {% if request.user.is_authenticated %}
+            <a href="submit"><button type="submit" class="btn btn-info w-50" style="margin-top: 20px; margin-left: 25%;">Submit</button></a>
+          {% else %}
+            <a href="login"><button type="button" class="btn btn-success w-50" style="margin-top: 20px; margin-left: 25%;"><b>Login First</b></button></a>
+          {% endif %}
+       </form>
+    </div>
+  </div>
+
+    <!-- ABOUT -->
+    <div id="about" class="mt-3">
+      <h2 style="text-align: center;" >ABOUT-US</h2>
+          <footer class="site-footer mt-5">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-12 col-md-6">
+                    <h6>About</h6>
+                    <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
+                  </div>
+        
+                  <div class="col-xs-6 col-md-3">
+                    <h6>Categories</h6>
+                    <ul class="footer-links">
+                      <li><a href="#">C</a></li>
+                      <li><a href="#">UI Design</a></li>
+                      <li><a href="#">PHP</a></li>
+                      <li><a href="#">Java</a></li>
+                      <li><a href="#">Android</a></li>
+                      <li><a href="#">Templates</a></li>
+                    </ul>
+                  </div>
+        
+                  <div class="col-xs-6 col-md-3">
+                    <h6>Quick Links</h6>
+                    <ul class="footer-links">
+                      <li><a href="#">About Us</a></li>
+                      <li><a href="#">Contact Us</a></li>
+                      <li><a href="#">Contribute</a></li>
+                      <li><a href="#">Privacy Policy</a></li>
+                      <li><a href="#">Sitemap</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <hr>
+              </div>
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-8 col-sm-6 col-xs-12">
+                    <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by 
+                <a href="#">Scanfcode</a>.
+                    </p>
+                  </div>
+        
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+                    <ul class="social-icons">
+                      <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li> 
+                      <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                      <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                      <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+                    </ul>
+                  </div>
+                </div>
+              </div>
+        </footer>
+    </div>
+
+    <script>
+      // add class navbarDark on navbar scroll
+      const header = document.querySelector('.navbar');
+
+      window.onscroll = function() {
+          var top = window.scrollY;
+          if(top >=100) {
+              header.classList.add('navbarDark');
+          }
+          else {
+              header.classList.remove('navbarDark');
+          }
+      }
+    </script>
+
+{% endblock body %}
