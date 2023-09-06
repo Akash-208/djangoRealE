@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
-import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,7 +27,7 @@ SECRET_KEY = 'django-insecure-rfirjpr1bwvr#&*&ktt)e$o6^50qsgdwy9b%y3zn5!up=q#l4s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -73,19 +72,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'realestate.wsgi.application'
 
-DATABASES={
-    "default": dj_database_url.config(default=DATABASE_URL , conn_max_age=1800)
-}
 # DATABASES={
-#    'default':{
-#       'ENGINE':'django.db.backends.postgresql',
-#       'NAME':'railway',
-#       'USER':'postgres',
-#       'PASSWORD':'N8FBSML6A2VSHrv3Nhfd',
-#       'HOST':'containers-us-west-35.railway.app',
-#       'PORT':'6400',
-#    }
+#     "default": dj_database_url.config(default=DATABASE_URL , conn_max_age=1800)
 # }
+DATABASES={
+   'default':{
+      'ENGINE':'django.db.backends.postgresql',
+      'NAME':'railway',
+      'USER':'postgres',
+      'PASSWORD':'N8FBSML6A2VSHrv3Nhfd',
+      'HOST':'containers-us-west-35.railway.app',
+      'PORT':'6400',
+   }
+}
 
 
 # Password validation
