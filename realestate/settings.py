@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -72,20 +73,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'realestate.wsgi.application'
 
-# DATABASES={
-#     "default": dj_database_url.config(default=DATABASE_URL , conn_max_age=1800)
-# }
 DATABASES={
-   'default':{
-      'ENGINE':'django.db.backends.postgresql',
-      'NAME':'railway',
-      'USER':'postgres',
-      'PASSWORD':'N8FBSML6A2VSHrv3Nhfd',
-      'HOST':'containers-us-west-35.railway.app',
-      'PORT':'6400',
-   }
+    "default": dj_database_url.config(default=DATABASE_URL , conn_max_age=1800)
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
